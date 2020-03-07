@@ -16,6 +16,7 @@ class InstallCommand(Command):
     """
 
     def handle(self):
+        # Publish BrowserlogController
         create_controller(
             os.path.join(
                 package_directory,
@@ -23,9 +24,18 @@ class InstallCommand(Command):
             )
         )
 
+        # Publish Browserlog config file
         create_or_append_config(
             os.path.join(
                 package_directory,
                 '../config/browserlog.py'
             )
         )
+
+        # Publish view
+        shutil.copytree(module_path + "/../templates",
+                os.getcwd() + "/resources/templates/browserlog")
+
+        # Append route
+        with open('routes/web.py', 'a') as f:
+            f.write("\nGet('/logs', 'BrowserlogController@index') \n")
