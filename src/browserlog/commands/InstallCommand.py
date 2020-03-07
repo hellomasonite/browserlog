@@ -1,5 +1,6 @@
 """A InstallCommand Command for Masonite Socialite."""
 import os
+import shutil
 
 from cleo import Command
 from masonite.packages import create_controller, create_or_append_config
