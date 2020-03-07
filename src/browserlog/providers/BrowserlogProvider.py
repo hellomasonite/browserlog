@@ -12,6 +12,6 @@ class BrowserlogProvider(ServiceProvider):
         """Register objects into the Service Container."""
         self.app.bind('InstallCommand', InstallCommand())
 
-    def boot(self, manager: SocialiteManager):
+    def boot(self):
         """Boots services required by the container."""
         pass

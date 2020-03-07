@@ -2,14 +2,15 @@
 import os
 
 from cleo import Command
-from masonite.packages import create_controller
+from masonite.packages import create_controller, create_or_append_config
+
 
 package_directory = os.path.dirname(os.path.realpath(__file__))
 
 
 class InstallCommand(Command):
     """
-    Craft the socialite config file
+    Publish Browserlog controller
 
     browserlog:install
     """
@@ -18,6 +19,13 @@ class InstallCommand(Command):
         create_controller(
             os.path.join(
                 package_directory,
-                '../controller/BrowserlogController.py'
+                '../controllers/BrowserlogController.py'
+            )
+        )
+
+        create_or_append_config(
+            os.path.join(
+                package_directory,
+                '../config/browserlog.py'
             )
         )

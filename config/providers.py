@@ -10,6 +10,7 @@ from masonite.validation.providers.ValidationProvider import ValidationProvider
 
 from masonite.logging.providers import LoggingProvider
 from masonite.validation.providers import ValidationProvider
+from browserlog.providers import BrowserlogProvider
 
 """Providers List
 Providers are a simple way to remove or add functionality for Masonite
@@ -41,6 +42,7 @@ PROVIDERS = [
     # Third Party Providers
     LoggingProvider,
     ValidationProvider,
+    BrowserlogProvider,
 
     # Application Providers
 

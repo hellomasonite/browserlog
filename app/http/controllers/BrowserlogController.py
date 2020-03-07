@@ -1,24 +1,21 @@
 from os import listdir
 
 from masonite.view import View
-from masonite.request import Request
-from masonite.controllers import Controller
-from browserlog.utils import parse_log
 from masonite.helpers import config
-
+from masonite.request import Request
+from browserlog.utils import parse_log
+from masonite.controllers import Controller
 
 
 class BrowserlogController(Controller):
     def index(self, view: View, request: Request):
         path = config('browserlog.BROWSERLOG_STORAGE_PATH')
-
         log_files = listdir(path)
 
         logs = []
+        q = int(request.input('q', '0'))
 
-        index = int(request.input('q', '0'))
-
-        for line in open('storage/logs/{0}'.format(log_files[index]), 'r'):
+        for line in open('{0}/{1}'.format(path, log_files[q]), 'r'):
             logs.append(parse_log(line))
 
-        return view.render('browserlog/index', {'log_files': log_files, 'logs': logs, 'index': index})
+        return view.render('browserlog/index', {'log_files': log_files, 'logs': logs, 'q': q})
