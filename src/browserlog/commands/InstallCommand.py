@@ -36,9 +36,9 @@ class InstallCommand(Command):
         )
 
         # Publish view
-        shutil.copytree(module_path + "/../templates",
-                os.getcwd() + "/resources/templates/browserlog")
+        shutil.copytree(module_path + "/../templates/index.html",
+                os.getcwd() + "/resources/templates/browserlog/index.html")
 
         # Append route
         with open('routes/web.py', 'a') as f:
-            f.write("\nGet('/logs', 'BrowserlogController@index') \n")
+            f.write("\nROUTES += [ Get('/logs', 'BrowserlogController@index') ] \n")
