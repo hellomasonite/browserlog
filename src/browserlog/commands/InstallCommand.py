@@ -11,7 +11,7 @@ package_directory = os.path.dirname(os.path.realpath(__file__))
 
 class InstallCommand(Command):
     """
-    Publish Browserlog controller
+    Install Browserlog
 
     browserlog:install
     """
