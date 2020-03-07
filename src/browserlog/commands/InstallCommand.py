@@ -36,7 +36,10 @@ class InstallCommand(Command):
         )
 
         # Publish view
-        shutil.copytree(module_path + "/../templates/index.html",
+        if not os.path.exists(os.getcwd() + '/resources/templates/browserlog'):
+            os.mkdir(os.getcwd() + '/resources/templates/browserlog')
+
+        shutil.copyfile(module_path + "/../templates/index.html",
                 os.getcwd() + "/resources/templates/browserlog/index.html")
 
         # Append route

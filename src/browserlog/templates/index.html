@@ -3,40 +3,39 @@
   <head>
     <!-- Required meta tags -->
     <meta charset="utf-8" />
+
     <meta
       name="viewport"
-      content="width=device-width, initial-scale=1, shrink-to-fit=no"
-    />
+      content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 
     <!-- Bootstrap CSS -->
     <link
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
       integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
-      crossorigin="anonymous"
-    />
+      crossorigin="anonymous" />
     <link
       rel="stylesheet"
       href="https://use.fontawesome.com/releases/v5.4.1/css/all.css"
       integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz"
-      crossorigin="anonymous"
-    />
-    <link rel="stylesheet" href="//cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css">
+      crossorigin="anonymous" />
+    <link rel="stylesheet" href="//cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css" />
 
     <title>Browserlog</title>
 
     <style>
       /*
         * Sidebar
-        */
+      */
       .sidebar-sticky {
         position: relative;
         top: 0;
         height: calc(100vh - 48px);
         padding-top: 0.5rem;
         overflow-x: hidden;
-        overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
+        overflow-y: auto;
       }
+
       .sidebar .nav-link {
         font-weight: 500;
         color: #333;
@@ -60,16 +59,30 @@
         font-size: 0.75rem;
         text-transform: uppercase;
       }
-      .msg {
+
+      .log-message {
         word-wrap: break-word;
         max-width: 550px;
       }
 
       .list-group-item.active {
-        z-index: 2;
         color: black;
         background-color: #f5f5f5;
         border-color: #777;
+      }
+
+      .brand {
+        color: #6c757d;
+        font-size: 0.85rem;
+        line-height: 1;
+      }
+
+      .list-group a {
+        text-decoration: none;
+      }
+
+      .table-container {
+        width: 100%;
       }
     </style>
   </head>
@@ -79,12 +92,12 @@
         <nav class="col-md-2 d-none d-md-block sidebar">
             <div class="sidebar-sticky">
               <h4 class="">Browserlog</h4>
-                <span style="color: #6c757d;font-size: 0.85rem; line-height: 1;">
+                <span class="brand">
                   by <a href="https://twitter.com/hellomasonite">@hellomasonite</a>
                 </span>
                 <ul class="list-group pt-2">
                     {% for log_file in log_files %}
-                      <a class="text-dark" href="?q={{ loop.index - 1 }}" style="text-decoration: none;">
+                      <a class="text-dark" href="?q={{ loop.index - 1 }}">
                         <li {% if q == loop.index - 1 %} class="list-group-item active" {% else %} class="list-group-item" {%endif%}>
                               {{ log_file }}
                         </li>
@@ -95,8 +108,8 @@
         </nav>
         <main role="main" class="col-md-9 ml-sm-auto col-lg-9 px-4 pt-4">
             <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-                <div class="table-container" style="width: 100%;">
-                    <table class="table" id="table" style="width: 100%;">
+                <div class="table-container">
+                    <table class="table" id="table">
                         <thead>
                         <tr>
                             <th scope="col">Message</th>
@@ -107,7 +120,7 @@
                         <tbody>
                             {% for log in logs %}
                                 <tr>
-                                    <td class="msg">{{ log.message|lower }}</td>
+                                    <td class="log-message">{{ log.message|lower }}</td>
                                     <td><span class="badge badge-{{ log.level_class }}">{{ log.level }}</span></td>
                                     <td>{{ log.logged_at }}</td>
                                 </tr>
