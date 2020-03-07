@@ -1,0 +1,40 @@
+from setuptools import setup, find_packages
+
+setup(
+    name='browserlog',
+    version='0.0.1',
+    package_dir={'': 'src'},
+    description='Masonite Log Viewer',
+    long_description=open("README.md", "r", encoding="utf-8").read(),
+    url='https://github.com/hellomasonite/browserlog',
+    author='Junior Gantin',
+    author_email='nioperas06@gmail.com',
+    license='MIT',
+    include_package_data=True,
+    classifiers=[
+        'Development Status :: 3 - Alpha',
+        'Intended Audience :: Developers',
+        'Topic :: Software Development :: Build Tools',
+        'Environment :: Web Environment',
+        'License :: OSI Approved :: MIT License',
+        'Operating System :: OS Independent',
+        'Programming Language :: Python :: 3.5',
+        'Programming Language :: Python :: 3.6',
+        'Programming Language :: Python :: 3.7',
+        'Programming Language :: Python :: 3.8',
+        'Topic :: Internet :: WWW/HTTP',
+        'Topic :: Internet :: WWW/HTTP :: Dynamic Content',
+        'Topic :: Internet :: WWW/HTTP :: WSGI',
+        'Topic :: Software Development :: Libraries :: Application Frameworks',
+        'Topic :: Software Development :: Libraries :: Python Modules',
+    ],
+    keywords='logging',
+    packages=find_packages('src'),
+    install_requires=[
+    ],
+    setup_requires=['wheel'],
+    extras_require={
+        'test': ['coverage', 'pytest'],
+    },
+    long_description_content_type='text/markdown',
+)
