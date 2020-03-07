@@ -17,6 +17,8 @@ class InstallCommand(Command):
     """
 
     def handle(self):
+        module_path = os.path.dirname(os.path.realpath(__file__))
+
         # Publish BrowserlogController
         create_controller(
             os.path.join(
