@@ -44,4 +44,6 @@ class InstallCommand(Command):
 
         # Append route
         with open('routes/web.py', 'a') as f:
-            f.write("\nROUTES += [ Get('/logs', 'BrowserlogController@index') ] \n")
+            f.write("\nROUTES += [ \n")
+            f.write("    Get('/logs', 'BrowserlogController@index'),\n")
+            f.write(']\n')
