@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='browserlog',
-    version='0.0.4',
+    version='0.0.5',
     package_dir={'': 'src'},
     description='Masonite Log Viewer',
     long_description=open("README.md", "r", encoding="utf-8").read(),
