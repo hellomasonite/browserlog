@@ -36,8 +36,8 @@ class InstallCommand(Command):
         )
 
         # Publish view
-        shutil.copyfile(module_path + "/../templates/index.html",
-                os.getcwd() + "/resources/templates/index.html")
+        shutil.copyfile(module_path + "/../templates/browserlog.html",
+                os.getcwd() + "/resources/templates/browserlog.html")
 
         # Append route
         with open('routes/web.py', 'a') as f:

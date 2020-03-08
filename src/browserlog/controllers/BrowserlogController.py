@@ -24,4 +24,4 @@ class BrowserlogController(Controller):
             if parse_log(line):
                 logs.append(parse_log(line))
 
-        return view.render('browserlog/index', {'log_files': log_files, 'logs': logs, 'q': q})
+        return view.render('browserlog', {'log_files': log_files, 'logs': logs, 'q': q})
