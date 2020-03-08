@@ -16,6 +16,10 @@
   </h3>
 </div>
 
+[![Build Status](https://travis-ci.org/hellomasonite/browserlog.svg?branch=master)](https://travis-ci.org/hellomasonite/browserlog)
+[![GitHub license](https://img.shields.io/github/license/hellomasonite/browserlog)](https://github.com/hellomasonite/browserlog/blob/master/LICENSE)
+[![Twitter](https://img.shields.io/twitter/url?style=social&url=https%3A%2F%2Fgithub.com%2Fhellomasonite%2Fbrowserlog%2F)](https://twitter.com/intent/tweet?text=Wow%20Log%20preview%20package%20for%20Masonite%20Framework%20@masoniteproject%20@hellomasonite%20&url=https%3A%2F%2Fgithub.com%2Fhellomasonite%2Fbrowserlog)
+
 ## Table of Contents
 - [Preview](#preview)
 - [Installation](#installation)
