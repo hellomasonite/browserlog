@@ -3,7 +3,7 @@ import os
 import shutil
 
 from cleo import Command
-from masonite.packages import create_controller, create_or_append_config
+from masonite.packages import create_controller, create_or_append_config, append_file
 
 
 package_directory = os.path.dirname(os.path.realpath(__file__))
@@ -36,8 +36,17 @@ class InstallCommand(Command):
         )
 
         # Publish view
-        shutil.copyfile(module_path + "/../templates/browserlog.html",
-                os.getcwd() + "/resources/templates/browserlog.html")
+        config_directory = os.path.join(os.getcwd(), 'resources/templates/browserlog')
+
+        if not os.path.exists(config_directory):
+            os.makedirs(config_directory)
+
+        shutil.copyfile(
+            os.path.join(
+                package_directory,
+                '../templates/browserlog/index.html'
+            ),
+            config_directory + '/' + 'index.html')
 
         # Append route
         with open('routes/web.py', 'a') as f:
