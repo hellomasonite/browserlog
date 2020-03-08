@@ -30,23 +30,23 @@ class InstallCommand(Command):
 
 
         # Publish BrowserlogController
-        # create_controller(
-        #     os.path.join(
-        #         package_directory,
-        #         '../controllers/BrowserlogController.py'
-        #     )
-        # )
+        create_controller(
+            os.path.join(
+                package_directory,
+                '../controllers/BrowserlogController.py'
+            )
+        )
 
         # # Publish Browserlog config file
-        # create_or_append_config(
-        #     os.path.join(
-        #         package_directory,
-        #         '../config/browserlog.py'
-        #     )
-        # )
+        create_or_append_config(
+            os.path.join(
+                package_directory,
+                '../config/browserlog.py'
+            )
+        )
 
         # # Append route
-        # with open('routes/web.py', 'a') as f:
-        #     f.write("\nROUTES += [ \n")
-        #     f.write("    Get('/logs', 'BrowserlogController@index'),\n")
-        #     f.write(']\n')
+        with open('routes/web.py', 'a') as f:
+            f.write("\nROUTES += [ \n")
+            f.write("    Get('/logs', 'BrowserlogController@index'),\n")
+            f.write(']\n')
