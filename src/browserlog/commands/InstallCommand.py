@@ -36,11 +36,8 @@ class InstallCommand(Command):
         )
 
         # Publish view
-        if not os.path.exists(os.getcwd() + '/resources/templates/browserlog'):
-            os.mkdir(os.getcwd() + '/resources/templates/browserlog')
-
         shutil.copyfile(module_path + "/../templates/index.html",
-                os.getcwd() + "/resources/templates/browserlog/index.html")
+                os.getcwd() + "/resources/templates/index.html")
 
         # Append route
         with open('routes/web.py', 'a') as f:
