@@ -3,6 +3,7 @@ from os import listdir, remove
 from masonite.view import View
 from masonite.helpers import config
 from masonite.request import Request
+from masonite.response import Download
 from browserlog.utils import parse_log
 from masonite.controllers import Controller
 
@@ -19,6 +20,9 @@ class BrowserlogController(Controller):
 
         if action == 'clean':
             open('{0}/{1}'.format(path, log_files[q]), 'w').close()
+
+        if action == 'download':
+            return Download('{0}/{1}'.format(path, log_files[q]), name=log_files[q].split('.')[0], force=True)
 
         try:
             log_files[q]
