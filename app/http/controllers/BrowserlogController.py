@@ -1,4 +1,4 @@
-from os import listdir
+from os import listdir, remove
 
 from masonite.view import View
 from masonite.helpers import config
@@ -14,6 +14,11 @@ class BrowserlogController(Controller):
 
         logs = []
         q = int(request.input('q', '0'))
+
+        action = request.input('action')
+
+        if action == 'clean':
+            open('{0}/{1}'.format(path, log_files[q]), 'w').close()
 
         try:
             log_files[q]

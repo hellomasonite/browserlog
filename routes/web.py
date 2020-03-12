@@ -7,5 +7,5 @@ ROUTES = [
 ]
 
 ROUTES += [ 
-    Get('/logs', 'BrowserlogController@index'),
+    Get('/logs', 'BrowserlogController@index').name('browserlog.index'),
 ]

@@ -131,8 +131,8 @@
             </div>
             <p>
               <a href="?q={{ q }}&action=download"><i class="fas fa-download"></i> Download file</a> - 
-              <a href="?q={{ q }}&action=clean"><i class="fas fa-sync"></i> Clean file</a> - 
-              <a href="?q={{ q }}&action=delete"><i class="fas fa-trash"></i> Delete file</a>
+              <a id="clean-log" href="?q={{ q }}&action=clean"><i class="fas fa-sync"></i> Clean file</a> - 
+              <a id="delete-log" href="?q={{ q }}&action=delete"><i class="fas fa-trash"></i> Delete file</a>
             </p>
         </main>
       </div>
@@ -157,12 +157,15 @@
     ></script>
     <script src="//cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
     <script>
-        $(document).ready( function () {
-            $('.table-container tr').on('click', function () {
-                $('#' + $(this).data('display')).toggle();
-            });
-            $('#table').DataTable();
+      $(document).ready( function () {
+        $('.table-container tr').on('click', function () {
+            $('#' + $(this).data('display')).toggle();
         });
+        $('#table').DataTable();
+        $('#delete-log, #clean-log').click(function () {
+          return confirm('Are you sure?');
+        });
+      });
     </script>
   </body>
 </html>
